@@ -1,28 +1,54 @@
-import React, { Component } from 'react';
-import logo from './logo.svg';
-import './App.css';
+import React from 'react'
+import {
+  VictoryBar, VictoryChart, VictoryTheme, VictoryContainer, VictoryAxis,
+  VictoryTooltip,
+} from 'victory'
+import { FormattedMessage } from 'react-intl'
 
-class App extends Component {
-  render() {
-    return (
-      <div className="App">
-        <header className="App-header">
-          <img src={logo} className="App-logo" alt="logo" />
-          <p>
-            Edit <code>src/App.js</code> and save to reload.
-          </p>
-          <a
-            className="App-link"
-            href="https://reactjs.org"
-            target="_blank"
-            rel="noopener noreferrer"
-          >
-            Learn React
-          </a>
-        </header>
-      </div>
-    );
-  }
-}
+import './App.css'
 
-export default App;
+import burgerData from './data'
+
+const App = ({ changeLanguage }) => (
+  <div className="App">
+    <header className="App-header" style={{ height: '15vh' }}>
+      <h1>
+        <FormattedMessage
+          id="Website.title"
+          defaultMessage="Kyiv Burgers Rating"
+        />
+      </h1>
+      <p className="small">
+        <FormattedMessage
+          id="Header.subheading"
+          defaultMessage="Rating is formed based on author's humble opinion"
+        />
+      </p>
+      <ul className="language-select">
+        <li onClick={changeLanguage('ru')}>Russian</li>
+        <li onClick={changeLanguage('en')}>English</li>
+        <li onClick={changeLanguage('ua')}>Українська</li>
+      </ul>
+    </header>
+    <main style={{ height: '85vh' }}>
+      <VictoryChart
+        domainPadding={20}
+        theme={VictoryTheme.material}
+        containerComponent={<VictoryContainer className="burgers-chart" style={{ width: '50%', height: '100%' }}/>}
+      >
+        <VictoryAxis dependentAxis />
+        <VictoryAxis
+          tickFormat={x => `${x.substr(0, 5)}...`}
+        />
+        <VictoryBar
+          labelComponent={<VictoryTooltip />}
+          data={burgerData}
+          x="place"
+          y="rating"
+        />
+      </VictoryChart>
+    </main>
+  </div>
+)
+
+export default App

@@ -1,12 +1,57 @@
-import React from 'react';
-import ReactDOM from 'react-dom';
-import './index.css';
-import App from './App';
-import * as serviceWorker from './serviceWorker';
+import React, { PureComponent } from 'react'
+import ReactDOM from 'react-dom'
+import { IntlProvider, addLocaleData, defineMessages } from 'react-intl'
+import ru from 'react-intl/locale-data/ru'
+import './index.css'
+import App from './App'
+import * as serviceWorker from './serviceWorker'
 
-ReactDOM.render(<App />, document.getElementById('root'));
+addLocaleData([...ru])
+
+const messages = defineMessages({
+  en: {
+    'Website.title': 'Kyiv Burgers Rating',
+    'Header.subheading': 'Rating is formed based on author\'s humble opinion',
+  },
+  ru: {
+    'Website.title': 'Рейтинг Бургеров в Киеве',
+    'Header.subheading': 'Рейтинг сформирован основываясь на скромном мнении автора',
+  },
+  ua: {
+    'Website.title': 'Рейтинг Бургерів у Києві',
+    'Header.subheading': 'Рейтинг сформировано базуючись на скромній думці автора',
+  },
+})
+
+class ApplicationTranslated extends PureComponent {
+  state = { language: 'en'}
+
+  constructor() {
+    super()
+    this.changeLanguage = this.changeLanguage.bind(this)
+  }
+
+  changeLanguage(language) {
+    return () => this.setState({ language })
+  }
+
+  render() {
+    const { language } = this.state
+
+    return (
+      <IntlProvider
+        locale={language}
+        messages={messages[language]}
+      >
+        <App changeLanguage={this.changeLanguage} />
+      </IntlProvider>
+    )
+  }
+}
+
+ReactDOM.render(<ApplicationTranslated />, document.getElementById('root'))
 
 // If you want your app to work offline and load faster, you can change
 // unregister() to register() below. Note this comes with some pitfalls.
 // Learn more about service workers: http://bit.ly/CRA-PWA
-serviceWorker.unregister();
+serviceWorker.unregister()
