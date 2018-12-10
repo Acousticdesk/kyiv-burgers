@@ -1,13 +1,13 @@
 {
-  "main.css": "/static/css/main.a395be7b.chunk.css",
-  "main.js": "/static/js/main.544ab05a.chunk.js",
-  "main.js.map": "/static/js/main.544ab05a.chunk.js.map",
-  "static/js/1.bf3442e5.chunk.js": "/static/js/1.bf3442e5.chunk.js",
-  "static/js/1.bf3442e5.chunk.js.map": "/static/js/1.bf3442e5.chunk.js.map",
-  "runtime~main.js": "/static/js/runtime~main.229c360f.js",
-  "runtime~main.js.map": "/static/js/runtime~main.229c360f.js.map",
-  "static/css/main.a395be7b.chunk.css.map": "/static/css/main.a395be7b.chunk.css.map",
-  "index.html": "/index.html",
-  "precache-manifest.131a4c73f0b17c5daf8e54d260208011.js": "/precache-manifest.131a4c73f0b17c5daf8e54d260208011.js",
-  "service-worker.js": "/service-worker.js"
+  "main.css": "/kyiv-burgers/static/css/main.a395be7b.chunk.css",
+  "main.js": "/kyiv-burgers/static/js/main.1da9d1be.chunk.js",
+  "main.js.map": "/kyiv-burgers/static/js/main.1da9d1be.chunk.js.map",
+  "static/js/1.bf3442e5.chunk.js": "/kyiv-burgers/static/js/1.bf3442e5.chunk.js",
+  "static/js/1.bf3442e5.chunk.js.map": "/kyiv-burgers/static/js/1.bf3442e5.chunk.js.map",
+  "runtime~main.js": "/kyiv-burgers/static/js/runtime~main.6547c0a3.js",
+  "runtime~main.js.map": "/kyiv-burgers/static/js/runtime~main.6547c0a3.js.map",
+  "static/css/main.a395be7b.chunk.css.map": "/kyiv-burgers/static/css/main.a395be7b.chunk.css.map",
+  "index.html": "/kyiv-burgers/index.html",
+  "precache-manifest.88704c95f6918ad49d890d7ca0b08c9e.js": "/kyiv-burgers/precache-manifest.88704c95f6918ad49d890d7ca0b08c9e.js",
+  "service-worker.js": "/kyiv-burgers/service-worker.js"
 }
