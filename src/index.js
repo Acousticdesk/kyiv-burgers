@@ -2,11 +2,12 @@ import React, { PureComponent } from 'react'
 import ReactDOM from 'react-dom'
 import { IntlProvider, addLocaleData, defineMessages } from 'react-intl'
 import ru from 'react-intl/locale-data/ru'
+import uk from 'react-intl/locale-data/uk'
 import './index.css'
 import App from './App'
 import * as serviceWorker from './serviceWorker'
 
-addLocaleData([...ru])
+addLocaleData([...ru, ...uk])
 
 const messages = defineMessages({
   en: {
@@ -17,7 +18,7 @@ const messages = defineMessages({
     'Website.title': 'Рейтинг Бургеров в Киеве',
     'Header.subheading': 'Рейтинг сформирован основываясь на скромном мнении автора',
   },
-  ua: {
+  uk: {
     'Website.title': 'Рейтинг Бургерів у Києві',
     'Header.subheading': 'Рейтинг сформировано базуючись на скромній думці автора',
   },
@@ -32,7 +33,7 @@ class ApplicationTranslated extends PureComponent {
   }
 
   changeLanguage(language) {
-    return () => this.setState({ language })
+    this.setState({ language })
   }
 
   render() {

@@ -11,7 +11,7 @@ import burgerData from './data'
 
 const App = ({ changeLanguage }) => (
   <div className="App">
-    <header className="App-header" style={{ height: '15vh' }}>
+    <header className="App-header">
       <h1>
         <FormattedMessage
           id="Website.title"
@@ -24,29 +24,37 @@ const App = ({ changeLanguage }) => (
           defaultMessage="Rating is formed based on author's humble opinion"
         />
       </p>
-      <ul className="language-select">
-        <li onClick={changeLanguage('ru')}>Russian</li>
-        <li onClick={changeLanguage('en')}>English</li>
-        <li onClick={changeLanguage('ua')}>Українська</li>
-      </ul>
+      <select onChange={e => changeLanguage(e.target.value)} name="language" id="lang">
+        <option value="ru">
+          Русский
+        </option>
+        <option value="uk">
+          Українська
+        </option>
+        <option selected value="en">
+          English
+        </option>
+      </select>
     </header>
-    <main style={{ height: '85vh' }}>
-      <VictoryChart
-        domainPadding={20}
-        theme={VictoryTheme.material}
-        containerComponent={<VictoryContainer className="burgers-chart" style={{ width: '50%', height: '100%' }}/>}
-      >
-        <VictoryAxis dependentAxis />
-        <VictoryAxis
-          tickFormat={x => `${x.substr(0, 5)}...`}
-        />
-        <VictoryBar
-          labelComponent={<VictoryTooltip />}
-          data={burgerData}
-          x="place"
-          y="rating"
-        />
-      </VictoryChart>
+    <main>
+      <div className="chart-content">
+        <VictoryChart
+          domainPadding={20}
+          theme={VictoryTheme.material}
+          containerComponent={<VictoryContainer className="burgers-chart" style={{ minHeight: '480px' }}/>}
+        >
+          <VictoryAxis dependentAxis />
+          <VictoryAxis
+            tickFormat={x => `${x.substr(0, 5)}...`}
+          />
+          <VictoryBar
+            labelComponent={<VictoryTooltip/>}
+            data={burgerData}
+            x="place"
+            y="rating"
+          />
+        </VictoryChart>
+      </div>
     </main>
   </div>
 )

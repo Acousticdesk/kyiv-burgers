@@ -1,14 +1,21 @@
 .App {
+  height: 100vh;
   text-align: center;
+  display: flex;
+  flex-direction: column;
 }
 
 .App-header {
   background-color: #282c34;
+  color: #fff;
+}
+
+main {
+  flex-grow: 1;
   display: flex;
-  flex-direction: column;
-  align-items: center;
+  min-height: 0;
+  overflow: auto;
   justify-content: center;
-  color: white;
 }
 
 h1 {
@@ -25,6 +32,10 @@ h1 {
 
 .burgers-chart {
   margin: 0 auto;
+}
+
+.chart-content {
+  flex-basis: 50%;
 }
 
 @keyframes App-logo-spin {
